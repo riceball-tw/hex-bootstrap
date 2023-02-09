@@ -1,8 +1,172 @@
 ---
 import Base from "@/layouts/Base.astro";
+import SolidButton from "@/components/app/SolidButton.astro";
+import OutlineButton from "@/components/app/OutlineButton.astro";
+import WorkCard from "@/components/app/WorkCard.astro";
+import AdoptCard from "@/components/app/AdoptCard.astro";
+
+const recentWorks = [
+  {
+    designerName: "Alex",
+    imgUrl: "assets/images/05.png",
+    imgAlt: "一隻橘色圍著圍巾的狗",
+  },
+  {
+    designerName: "Steve",
+    imgUrl: "assets/images/07.png",
+    imgAlt: "一隻白橘相間的貓咪",
+  },
+  {
+    designerName: "Joe",
+    imgUrl: "assets/images/06.png",
+    imgAlt: "一隻黑色吐著舌頭的狗",
+  },
+  {
+    designerName: "Mary",
+    imgUrl: "assets/images/Michael.png",
+    imgAlt: "一隻白色的狗",
+  },
+];
+
+const toBeAdoptedPuppy = [
+  {
+    name: "華仔",
+    description:
+      "目前7個月大的華仔，是個愛笑的貪吃鬼，喜歡吃西瓜還有蓮霧，是一隻吃素的乖狗狗，會挑食不喜歡... ",
+    illustrationImgUrl: "assets/images/dog01.png",
+    illustrationImgAlt: "一隻深棕色微笑的狗插畫",
+    realImgUrl: "assets/images/dog01-hover-1.png",
+    realImgAlt: "一隻棕色的狗張著嘴",
+  },
+  {
+    name: "小呆",
+    description:
+      "小呆有著圓圓的大眼睛，一歲的他來自台中，原本陪著一位老奶奶生活，上個月奶奶行動不便不能再陪... ",
+    illustrationImgUrl: "assets/images/04.png",
+    illustrationImgAlt: "一隻黑色毛毛的狗插畫",
+    realImgUrl: "assets/images/dog01-hover.png",
+    realImgAlt: "一隻黑色的狗在木頭地板",
+  },
+  {
+    name: "Snow",
+    description:
+      "看起來很兇但特別怕打雷的Snow，很喜歡吃冰，冰冰的水也喜歡，如果摸他的額頭會發出吹口哨的聲... ",
+    illustrationImgUrl: "assets/images/08.png",
+    illustrationImgAlt: "一隻嘴張張很大微笑藍色眼睛的白狗",
+    realImgUrl: "assets/images/dog01-hover-2.png",
+    realImgAlt: "白色的狗在雪地",
+  },
+];
 ---
 
-<Base title="Welcome to Astro.">
-  <h1>test</h1>
-  <a href="#" class="btn btn-primary">aaa</a>
+<style>
+  .outlinedText {
+    color: #848975;
+    text-shadow: -3px -3px 0 white, 0 -3px 0 white, 3px -3px 0 white,
+      3px 0 0 white, 3px 3px 0 white, 0 3px 0 white, -3px 3px 0 white,
+      -3px 0 0 white;
+  }
+
+  .heroBanner {
+    background-image: url("./assets/images/home_mobile.png");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .heroBanner {
+      background-image: url("./assets/images/home.png");
+    }
+  }
+</style>
+
+<Base
+  title="首頁"
+  description="我們是一群貓奴才狗奴才，希望能透過自己小小的力量幫助浪貓浪狗們，100% 的收入都會捐獻給愛貓狗協會，加入我們的行列吧。"
+>
+  <!-- Hero -->
+  <section
+    class="heroBanner d-flex justify-content-center align-items-center h-100 overflow-hidden position-relative"
+    style="min-height: calc(100vh - var(--navbar-height));"
+  >
+    <h1
+      class="outlinedText display-5 fw-bold position-absolute top-50 start-50 translate-middle text-center"
+    >
+      Full of fur. Full of love
+    </h1>
+  </section>
+  <!-- Service -->
+  <section
+    class="pt-3 pt-lg-6 container d-flex align-items-center gap-5 flex-wrap hero-banner"
+  >
+    <h2 class="visually-hidden">關於我們的服務</h2>
+
+    <img
+      class="img-fluid"
+      src="https://howtobefine.github.io/bootstrap5-final/images/home01.png"
+      alt="一個人拿著鉛筆周圍有兩隻狗與一隻貓的插圖"
+    />
+
+    <div>
+      <div class="text-primary fs-4 fw-bold fontfamily-script mb-2">
+        Service
+      </div>
+      <h3 class="fw-bold">您出錢 我出力 一起助浪浪</h3>
+      <p class="lh-lg text-secondary">
+        我們是一群貓奴才狗奴才，<br />
+        希望能透過自己小小的力量幫助浪貓浪狗們，<br />
+        可我們沒什麼錢錢，但我們喜歡畫畫、喜愛貓狗，<br />
+        於是想到個兩全其美的好法子！<br />
+        如果您購買我們的寵物似顏繪服務，<br />
+        我們將會把設計費100%全數捐給浪浪們！<br />
+        您出錢，我出力，合作無間讓浪浪有飯吃，讚啦！
+      </p>
+    </div>
+  </section>
+
+  <!-- Recent Work -->
+  <section class="pt-3 pt-lg-6 container">
+    <h2 class="text-center pb-5">
+      <span class="visually-hidden">近期作品</span>
+      <img
+        width="250"
+        height="134"
+        src="assets/images/title01.png"
+        alt="一隻貓咪拿著鉛筆，背後有四個字：近期作品"
+      />
+    </h2>
+
+    <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-4">
+      {recentWorks.map((work) => <WorkCard data={work} />)}
+    </div>
+    <div class="d-flex justify-content-center py-5 gap-4">
+      <OutlineButton className="btn-lg" href="#">查看更多作品</OutlineButton>
+      <SolidButton className="btn-lg" href="#">克制毛孩似顏繪</SolidButton>
+    </div>
+  </section>
+
+  <!-- Adopt -->
+  <section class="pt-3 pt-lg-6 container">
+    <h2 class="text-center pb-3">
+      <span class="visually-hidden">領養專區</span>
+      <img
+        width="250"
+        height="134"
+        src="assets/images/title02.png"
+        alt="一隻在滑板上的狗，背後有四個字：領養專區"
+      />
+    </h2>
+    <p class="text-center mb-5">
+      這裡是在還在等家的浪浪們，若您正巧在找個家人，不訪來認識一下唄
+    </p>
+
+    <div class="row row-cols-1 row-cols-lg-3 g-2 g-lg-4">
+      {toBeAdoptedPuppy.map((puppy) => <AdoptCard data={puppy} />)}
+    </div>
+    <div class="d-flex justify-content-center py-5">
+      <OutlineButton className="btn-lg" href="#">看看更多浪浪</OutlineButton>
+    </div>
+  </section>
 </Base>

@@ -1,0 +1,68 @@
+---
+const {
+  name,
+  description,
+  realImgAlt,
+  realImgUrl,
+  illustrationImgAlt,
+  illustrationImgUrl,
+} = Astro.props.data;
+---
+
+<style>
+  .adopt-card > img {
+    transition: opacity 0.3s;
+  }
+
+  .adopt-card:hover > img:nth-child(2) {
+    opacity: 1;
+  }
+
+  .adopt-card__cta {
+    color: currentColor;
+  }
+
+  .adopt-card:hover .adopt-card__cta {
+    color: var(--bs-primary) !important;
+  }
+
+  .adopt-card > img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+</style>
+
+<div class="col">
+  <div
+    class="adopt-card d-block position-relative rounded overflow-hidden card rounded-4 shadow"
+  >
+    <img
+      width="424"
+      height="424"
+      class="card-img-top img-fluid"
+      src={illustrationImgUrl}
+      alt={illustrationImgAlt}
+    />
+    <img
+      width="424"
+      height="424"
+      class="card-img-top img-fluid"
+      src={realImgUrl}
+      alt={realImgAlt}
+    />
+
+    <div class="card-body">
+      <h3 class="card-title fs-6 fw-bold py-4">等家中-{name}</h3>
+      <p class="card-text text-secondary">{description}</p>
+    </div>
+    <div class="card-footer p-0 d-flex justify-content-center bg-transparent">
+      <a
+        href="/profile"
+        class="fontfamily-script adopt-card__cta fw-bold py-3 text-decoration-none"
+        >More</a
+      >
+    </div>
+  </div>
+</div>

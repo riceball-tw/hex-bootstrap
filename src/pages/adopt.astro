@@ -1,0 +1,84 @@
+---
+import Base from "@/layouts/Base.astro";
+import AdoptCard from "@/components/app/AdoptCard.astro";
+import Pagination from "@/components/app/Pagination.astro";
+
+const toBeAdoptedPuppy = [
+  {
+    name: "華仔",
+    description:
+      "目前7個月大的華仔，是個愛笑的貪吃鬼，喜歡吃西瓜還有蓮霧，是一隻吃素的乖狗狗，會挑食不喜歡... ",
+    illustrationImgUrl: "assets/images/dog01.png",
+    illustrationImgAlt: "一隻深棕色微笑的狗插畫",
+    realImgUrl: "assets/images/dog01-hover-1.png",
+    realImgAlt: "一隻棕色的狗張著嘴",
+  },
+  {
+    name: "小呆",
+    description:
+      "小呆有著圓圓的大眼睛，一歲的他來自台中，原本陪著一位老奶奶生活，上個月奶奶行動不便不能再陪... ",
+    illustrationImgUrl: "assets/images/04.png",
+    illustrationImgAlt: "一隻黑色毛毛的狗插畫",
+    realImgUrl: "assets/images/dog01-hover.png",
+    realImgAlt: "一隻黑色的狗在木頭地板",
+  },
+  {
+    name: "Snow",
+    description:
+      "看起來很兇但特別怕打雷的Snow，很喜歡吃冰，冰冰的水也喜歡，如果摸他的額頭會發出吹口哨的聲... ",
+    illustrationImgUrl: "assets/images/08.png",
+    illustrationImgAlt: "一隻嘴張張很大微笑藍色眼睛的白狗",
+    realImgUrl: "assets/images/dog01-hover-2.png",
+    realImgAlt: "白色的狗在雪地",
+  },
+  {
+    name: "Snow",
+    description:
+      "看起來很兇但特別怕打雷的Snow，很喜歡吃冰，冰冰的水也喜歡，如果摸他的額頭會發出吹口哨的聲... ",
+    illustrationImgUrl: "assets/images/06.png",
+    illustrationImgAlt: "一隻嘴張張很大微笑藍色眼睛的白狗",
+    realImgUrl: "assets/images/dog01-hover-2.png",
+    realImgAlt: "白色的狗在雪地",
+  },
+  {
+    name: "Snow",
+    description:
+      "看起來很兇但特別怕打雷的Snow，很喜歡吃冰，冰冰的水也喜歡，如果摸他的額頭會發出吹口哨的聲... ",
+    illustrationImgUrl: "assets/images/07.png",
+    illustrationImgAlt: "一隻嘴張張很大微笑藍色眼睛的白狗",
+    realImgUrl: "assets/images/dog01-hover-2.png",
+    realImgAlt: "白色的狗在雪地",
+  },
+  {
+    name: "Snow",
+    description:
+      "看起來很兇但特別怕打雷的Snow，很喜歡吃冰，冰冰的水也喜歡，如果摸他的額頭會發出吹口哨的聲... ",
+    illustrationImgUrl: "assets/images/05.png",
+    illustrationImgAlt: "一隻嘴張張很大微笑藍色眼睛的白狗",
+    realImgUrl: "assets/images/dog01-hover-2.png",
+    realImgAlt: "白色的狗在雪地",
+  },
+];
+---
+
+<Base
+  title="領養"
+  description="我們是一群貓奴才狗奴才，希望能透過自己小小的力量幫助浪貓浪狗們，100% 的收入都會捐獻給愛貓狗協會，加入我們的行列吧。"
+>
+  <h2 class="text-center pb-5">
+    <span class="visually-hidden">領養專區</span>
+    <img
+      width="250"
+      height="134"
+      src="assets/images/title02.png"
+      alt="一隻在滑板上的狗，背後有四個字：領養專區"
+    />
+  </h2>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-lg-3 g-2 g-lg-4">
+      {toBeAdoptedPuppy.map((puppy) => <AdoptCard data={puppy} />)}
+    </div>
+
+    <Pagination />
+  </div>
+</Base>

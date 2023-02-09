@@ -1,0 +1,44 @@
+---
+import OutlineButton from "./OutlineButton.astro";
+---
+
+<footer class="bg-white border-top border-4 border-primary">
+  <!-- Contact -->
+  <div class="container d-flex justify-content-center flex-wrap gap-5 py-5">
+    <h2 class="visually-hidden">加入我們</h2>
+    <div
+      class="d-flex flex-column flex-lg-row text-center text-lg-start align-items-center gap-4"
+    >
+      <img
+        width="200"
+        height="127"
+        src="./assets/images/link01.png"
+        alt="握手插圖"
+      />
+      <div>
+        <h3>加入奴才團隊</h3>
+        <p>我也會畫畫，希望能盡一份心力！</p>
+        <OutlineButton className="btn-lg" href="#">聯絡我們</OutlineButton>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column flex-lg-row text-center text-lg-start align-items-center gap-4"
+    >
+      <img
+        width="200"
+        height="127"
+        src="./assets/images/link02.png"
+        alt="與狗狗握手插圖"
+      />
+      <div>
+        <h3>加入奴才團隊</h3>
+        <p>我也會畫畫，希望能盡一份心力！</p>
+        <OutlineButton className="btn-lg" href="#">領養專區</OutlineButton>
+      </div>
+    </div>
+  </div>
+  <!-- Copyright -->
+  <p class="text-center bg-secondary text-light m-0 py-4">
+    Copyright © 2021 撿到寶.All rights reserved.
+  </p>
+</footer>

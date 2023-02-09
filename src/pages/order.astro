@@ -1,0 +1,189 @@
+---
+import Base from "@/layouts/Base.astro";
+import SolidButton from "@/components/app/SolidButton.astro";
+
+const designers = ["Alex", "Steve", "Joe", "Mary"];
+const paymentMethods = ["貨到付款", "信用卡付款", "轉帳"];
+const additionService = ["送禮用包裝+100", "無框畫 +250"];
+---
+
+<script>
+  (() => {
+    "use strict";
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll(".needs-validation");
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>
+
+<Base
+  title="購買插畫幫助浪浪"
+  description="我們是一群貓奴才狗奴才，希望能透過自己小小的力量幫助浪貓浪狗們，100% 的收入都會捐獻給愛貓狗協會，加入我們的行列吧。"
+>
+  <!-- Banner -->
+  <div class="mb-6">
+    <picture class="w-100 user-select-none">
+      <source media="(min-width:576px)" srcset="./assets/images/banner.png" />
+      <img
+        class="w-100"
+        src="./assets/images/banner_service-sm.png"
+        alt="4隻不同顏色的貓咪，在中間有一個大標題寫著：毛孩似顏繪"
+      />
+    </picture>
+  </div>
+
+  <section class="container mb-6">
+    <div
+      style="max-width: 872px"
+      class="mx-auto shadow p-4 border-5 border-top border-primary rounded"
+    >
+      <h1 class="text-center fs-3 mb-6 mt-3">填寫訂購資訊</h1>
+      <form class="border-1 needs-validation" novalidate>
+        <div class="row mb-3 gx-2">
+          <div class="col">
+            <label for="name" class="form-label">名稱</label>
+            <input
+              id="name"
+              type="text"
+              class="form-control"
+              placeholder="請輸入您的名稱"
+              aria-describedby="名稱"
+              required
+            />
+          </div>
+          <div class="col">
+            <label for="surname" class="form-label">姓氏</label>
+            <input
+              id="surname"
+              type="text"
+              class="form-control"
+              placeholder="請輸入您的姓氏"
+              aria-describedby="名稱"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="telphone" class="form-label">手機號碼</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="telphone"
+            placeholder="請輸入您的手機號碼"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">電子信箱</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="請輸入您的電子信箱"
+            required
+          />
+        </div>
+
+        <div class="mb-3 gx-2">
+          <label for="location" class="form-label">收件地址</label>
+          <div class="row mb-3 gx-2">
+            <div class="col">
+              <select class="form-select" id="city" required>
+                <option disabled selected value="">選擇城市</option>
+              </select>
+            </div>
+            <div class="col">
+              <select class="form-select" id="region" required>
+                <option disabled selected value="">選擇地區</option>
+              </select>
+            </div>
+          </div>
+          <input
+            type="tel"
+            class="form-control"
+            id="location"
+            placeholder="請輸入您的收件地址"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="designer" class="form-label">選擇設計師風格</label>
+          <select class="form-select" id="designer" required>
+            <option disabled selected value="">請選擇設計師</option>
+            {
+              designers.map((designer) => (
+                <option value={designer}>{designer}</option>
+              ))
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="designer" class="form-label">選擇付款方式</label>
+          <select class="form-select" id="designer" required>
+            <option disabled selected value="">請選擇付款方式</option>
+            {
+              paymentMethods.map((method) => (
+                <option value={method}>{method}</option>
+              ))
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="d-block form-label">加購服務</label>
+          {
+            additionService.map((service) => (
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id={service}
+                  value=""
+                />
+                <label class="form-check-label" for={service}>
+                  {service}
+                </label>
+              </div>
+            ))
+          }
+        </div>
+        <div class="mb-3">
+          <label for="note" class="form-label">備註說明</label>
+          <textarea
+            class="form-control"
+            id="note"
+            rows="3"
+            placeholder="有什麼想額外說明的嗎？"
+            required></textarea>
+        </div>
+
+        <div class="text-center fs-2 fw-bold">
+          <div class="py-4">總金額 NT$ 300</div>
+          <SolidButton className="btn-lg" tag="button" type="submit">
+            送出訂購資訊
+          </SolidButton>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>

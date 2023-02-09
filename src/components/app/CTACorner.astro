@@ -1,0 +1,77 @@
+---
+---
+
+<style>
+  .cta-corner {
+    --dialog-border-width: 2px;
+    --dialog-border-radius: 0.5rem;
+    --dialog-color: var(--bs-secondary);
+    background-image: url(../assets/images/btn2.png);
+    width: 140px;
+    height: 153px;
+    margin-right: 5rem;
+  }
+
+  .cta-corner:hover {
+    background-image: url(../assets/images/btn.png);
+  }
+
+  .cta-corner:hover > img:nth-of-type(2) {
+    display: none;
+  }
+
+  .cta-corner:hover > .cta-corner__inner {
+    opacity: 1;
+  }
+
+  /* https://cssarrowplease.com/ */
+  .arrow_box {
+    position: relative;
+    background: #ffffff;
+    border: 2px solid var(--dialog-color);
+  }
+  .arrow_box:after,
+  .arrow_box:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .arrow_box:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: #ffffff;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+  .arrow_box:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: var(--dialog-color);
+    border-width: 13px;
+    margin-left: -13px;
+  }
+
+  .cta-corner__inner {
+    background-color: white;
+    position: absolute;
+    color: var(--dialog-color);
+    padding: 1rem;
+    white-space: nowrap;
+    margin-top: -5rem;
+    font-weight: bold;
+    border: var(--dialog-border-width) solid var(--dialog-color);
+    border-radius: var(--dialog-border-radius);
+    opacity: 0;
+  }
+</style>
+
+<a
+  class="d-none d-lg-block cta-corner position-fixed bottom-0 end-0"
+  href="/order"
+>
+  <span class="cta-corner__inner arrow_box">客製我的毛孩圖</span>
+</a>

@@ -1,0 +1,18 @@
+---
+const { className, href } = Astro.props;
+---
+
+<style>
+  .btn-outline-secondary:hover {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: currentColor;
+  }
+</style>
+
+<a
+  class={`btn btn-outline-secondary rounded-pill px-4 py-2 border-1 ${className}`}
+  href={href}
+>
+  <slot />
+</a>

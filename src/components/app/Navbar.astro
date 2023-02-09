@@ -1,0 +1,72 @@
+---
+import SolidButton from "./SolidButton.astro";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<style>
+  .nav-link:hover {
+    color: var(--bs-primary);
+  }
+</style>
+
+<nav style="min-height: var(--navbar-height)" class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img
+        src="./assets/images/logo.png"
+        alt="撿到寶 LOGO"
+        width="119"
+        height="40"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto gap-4 align-items-center">
+        <li class="nav-item">
+          <a
+            class={`nav-link ${currentPath === "" ? "text-primary" : ""}`}
+            aria-current="page"
+            href="/">首頁</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ${
+              currentPath === "service" ? "text-primary" : ""
+            }`}
+            href="/service">服務介紹</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ${currentPath === "works" ? "text-primary" : ""}`}
+            href="/works">設計作品</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ${currentPath === "adopt" ? "text-primary" : ""}`}
+            href="/adopt">領養專區</a
+          >
+        </li>
+        <li class="nav-item">
+          <SolidButton className="nav-link" href="/order">
+            毛孩似顏繪
+          </SolidButton>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

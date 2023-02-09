@@ -1,0 +1,73 @@
+---
+import Base from "@/layouts/Base.astro";
+
+const processStep = [
+  {
+    title: "購買似顏繪服務",
+    imgUrl: "./assets/images/step01.png",
+    imgAlt: "一隻狗狗叼著一張紙，食物盤中有錢",
+    description: "填寫購買表單<br>並完成轉帳付款",
+  },
+  {
+    title: "設計師繪製",
+    imgUrl: "./assets/images/step02.png",
+    imgAlt: "一個畫家在看著狗狗作畫",
+    description: "設計師繪製似顏繪<br>不提供改稿",
+  },
+  {
+    title: "畫作提供",
+    imgUrl: "./assets/images/step03.png",
+    imgAlt: "一隻狗狗在吃食物，角落有一排字'Thank You'",
+    description: "電子檔案or實體化做寄送<br>設計師提供作品",
+  },
+  {
+    title: "幫助浪浪",
+    imgUrl: "./assets/images/step04.png",
+    imgAlt: "畫師笑著展示一幅狗狗的插畫",
+    description: "每個月30號我們會將設計費<br>購買飼料，提供給xxx中途之家",
+  },
+];
+---
+
+<Base
+  title="服務"
+  description="我們是一群貓奴才狗奴才，希望能透過自己小小的力量幫助浪貓浪狗們，100% 的收入都會捐獻給愛貓狗協會，加入我們的行列吧。"
+>
+  <!-- Banner -->
+  <picture class="w-100 user-select-none">
+    <source media="(min-width:576px)" srcset="./assets/images/banner.png" />
+    <img
+      class="w-100"
+      src="./assets/images/banner_service-sm.png"
+      alt="4隻不同顏色的貓咪，在中間有一個大標題寫著：毛孩似顏繪"
+    />
+  </picture>
+
+  <div class="container py-5">
+    <ul
+      class="d-flex justify-content-center flex-wrap mx-auto list-unstyled gap-6"
+    >
+      {
+        processStep.map((step, index) => (
+          <li class="text-start text-lg-center d-lg-block d-flex align-items-center gap-3">
+            <img
+              class="mb-3"
+              width="204"
+              height="200"
+              src={step.imgUrl}
+              alt={step.imgAlt}
+            />
+
+            <div>
+              <h3 class="fw-bold">
+                <div class="text-primary mb-3 fs-5">Step{index}</div>
+                {step.title}
+              </h3>
+              <p set:html={step.description} />
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

@@ -10,7 +10,7 @@ export interface Props {
 
 const { title, description } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1);
+const currentPath = "/" + pathname.slice(1);
 const isAtOrderPage = currentPath === `${import.meta.env.PUBLIC_URLBASE}/order`;
 
 const textureUrl = `url(${

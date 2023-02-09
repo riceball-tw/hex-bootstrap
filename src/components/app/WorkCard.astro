@@ -38,7 +38,7 @@ const { imgUrl, imgAlt, designerName } = Astro.props.data;
       class="card-img img-fluid"
       width="424"
       height="424"
-      src={imgUrl}
+      src={`${import.meta.env.PUBLIC_URLBASE}/${imgUrl}`}
       alt={imgAlt}
     />
     <div class="card-img-overlay">

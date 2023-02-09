@@ -1,0 +1,91 @@
+---
+import Base from "@/layouts/Base.astro";
+import SolidButton from "@/components/app/SolidButton.astro";
+---
+
+<style>
+  .profile-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+</style>
+
+<Base
+  title="等家的 Snow"
+  description="我們是一群貓奴才狗奴才，希望能透過自己小小的力量幫助浪貓浪狗們，100% 的收入都會捐獻給愛貓狗協會，加入我們的行列吧。"
+>
+  <h1 class="text-center pb-5">
+    <span class="visually-hidden">領養專區</span>
+    <img
+      width="250"
+      height="134"
+      src="assets/images/title02.png"
+      alt="一隻在滑板上的狗，背後有四個字：領養專區"
+    />
+  </h1>
+  <!-- Detail -->
+  <div
+    class="container d-flex flex-lg-row flex-column align-items-lg-start gap-5 gap-lg-4 mb-6"
+  >
+    <div class="shadow px-3 py-4 rounded-4">
+      <h2 class="fw-bold mb-4">等家中 - Snow</h2>
+      <ul class="list-unstyled profile-list mb-5 text-secondary">
+        <li>品種 | 哈士奇</li>
+        <li>性別 | 公</li>
+        <li>體型 | 大型</li>
+        <li>年紀 | 2 個月</li>
+        <li>結紮 | 已結紮</li>
+        <li>狂犬病疫苗 | 已施打</li>
+      </ul>
+
+      <p class="text-secondary lh-lg mb-5">
+        看起來很兇但特別怕打雷的Snow，很喜歡吃冰，冰冰的水也喜歡，如果摸他的額頭會發出很像貓的叫聲，相當有活力，不適合關籠會發出像獅子的叫聲。<br
+        />如果照片看起來像你家人，歡迎帶回家一家團圓！
+      </p>
+
+      <img
+        class="ratio ratio-4x3 w-100 object-fit-cover rounded-4"
+        width="808"
+        height="539"
+        src="./assets/images/dog03.png"
+        alt="一隻在雪地的哈士奇"
+      />
+    </div>
+
+    <!-- Profile -->
+    <div
+      style="min-width: fit-content"
+      class="shadow rounded-4 overflow-hidden"
+    >
+      <img
+        class="card-img-top object-fit-cover"
+        width="424"
+        height="424"
+        src="./assets/images/08.png"
+        alt="一隻在雪地的哈士奇"
+      />
+      <div class="card-body p-4">
+        <ul class="list-unstyled d-flex flex-column gap-4 mb-4">
+          <li>
+            <div class="text-muted">收容所</div><span class="fw-bold"
+              >高雄浪流連途之家</span
+            >
+          </li>
+          <li>
+            <div class="text-muted">電話</div><span class="fw-bold"
+              >07-123999</span
+            >
+          </li>
+          <li>
+            <div class="text-muted">地址</div><span class="fw-bold"
+              >高雄市三民區河中三路123號</span
+            >
+          </li>
+        </ul>
+        <SolidButton href="#" className="w-100 btn-lg">
+          前往中途之家
+        </SolidButton>
+      </div>
+    </div>
+  </div>
+</Base>

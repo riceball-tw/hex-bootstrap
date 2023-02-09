@@ -1,0 +1,52 @@
+---
+const { imgUrl, imgAlt, designerName } = Astro.props.data;
+---
+
+<style>
+  .work-card::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(transparent, hsl(0, 0%, 0%, 0.6));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .work-card:hover::before {
+    opacity: 1;
+  }
+  .card-title {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.3s;
+  }
+  .work-card:hover .card-title {
+    opacity: 1;
+  }
+</style>
+
+<div class="col">
+  <a
+    href="#"
+    class="card border-0 text-bg-dark work-card rounded-4 overflow-hidden position-relative"
+  >
+    <img
+      class="card-img img-fluid"
+      width="424"
+      height="424"
+      src={imgUrl}
+      alt={imgAlt}
+    />
+    <div class="card-img-overlay">
+      <h3 class="card-title">
+        <span class="fs-6">Designer</span><br /><span class="fw-bold"
+          >{designerName}</span
+        >
+      </h3>
+    </div>
+  </a>
+</div>

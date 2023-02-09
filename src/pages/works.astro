@@ -1,0 +1,98 @@
+---
+import Base from "@/layouts/Base.astro";
+import WorkCard from "@/components/app/WorkCard.astro";
+
+const designers = [
+  {
+    designerName: "Alex",
+    imgUrl: "assets/images/05.png",
+    imgAlt: "一隻橘色圍著圍巾的狗",
+  },
+  {
+    designerName: "Steve",
+    imgUrl: "assets/images/07.png",
+    imgAlt: "一隻白橘相間的貓咪",
+  },
+  {
+    designerName: "Joe",
+    imgUrl: "assets/images/06.png",
+    imgAlt: "一隻黑色吐著舌頭的狗",
+  },
+  {
+    designerName: "Mary",
+    imgUrl: "assets/images/Michael.png",
+    imgAlt: "一隻白色的狗",
+  },
+];
+---
+
+<style>
+  .dashHover {
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+  }
+
+  .dashHover:hover::before {
+    width: 10px;
+  }
+
+  .dashHover::before {
+    content: "";
+    display: inline-block;
+    width: 0px;
+    height: 2px;
+    margin-right: 0.5rem;
+    background: currentColor;
+    transition: width 0.3s;
+  }
+</style>
+
+<Base
+  title="作品"
+  description="我們是一群貓奴才狗奴才，希望能透過自己小小的力量幫助浪貓浪狗們，100% 的收入都會捐獻給愛貓狗協會，加入我們的行列吧。"
+>
+  <!-- Works -->
+  <section class="mb-6">
+    <h2 class="text-center pb-5">
+      <span class="visually-hidden">近期作品</span>
+      <img
+        width="250"
+        height="134"
+        src="assets/images/title01.png"
+        alt="一隻貓咪拿著鉛筆，背後有四個字：近期作品"
+      />
+    </h2>
+    <!-- Gallery Section -->
+    <div class="container">
+      <div class="row">
+        <!-- Aside -->
+        <div class="col-lg-3 text-center text-lg-start">
+          <h3 class="mb-3 fw-bold">Designer</h3>
+          <ul
+            class="list-unstyled d-flex gap-4 justify-content-center d-lg-block fontfamily-script"
+          >
+            {
+              designers.map((designer) => (
+                <li class="fs-5 py-3">
+                  <a
+                    class="text-decoration-none link-primary text-dark dashHover"
+                    href="#"
+                  >
+                    {designer.designerName}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <!-- Gallery -->
+        <div class="col-lg-9">
+          <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-4">
+            {designers.map((work) => <WorkCard data={work} />)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -13,9 +13,9 @@ const currentPath = pathname.slice(1);
 
 <nav style="min-height: var(--navbar-height)" class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href={`${import.meta.env.PUBLIC_URLBASE}/`}>
       <img
-        src="./assets/images/logo.png"
+        src={`${import.meta.env.PUBLIC_URLBASE}/assets/images/logo.png`}
         alt="撿到寶 LOGO"
         width="119"
         height="40"
@@ -38,7 +38,7 @@ const currentPath = pathname.slice(1);
           <a
             class={`nav-link ${currentPath === "" ? "text-primary" : ""}`}
             aria-current="page"
-            href="/">首頁</a
+            href={`${import.meta.env.PUBLIC_URLBASE}/`}>首頁</a
           >
         </li>
         <li class="nav-item">
@@ -46,23 +46,26 @@ const currentPath = pathname.slice(1);
             class={`nav-link ${
               currentPath === "service" ? "text-primary" : ""
             }`}
-            href="/service">服務介紹</a
+            href={`${import.meta.env.PUBLIC_URLBASE}/service`}>服務介紹</a
           >
         </li>
         <li class="nav-item">
           <a
             class={`nav-link ${currentPath === "works" ? "text-primary" : ""}`}
-            href="/works">設計作品</a
+            href={`${import.meta.env.PUBLIC_URLBASE}/works`}>設計作品</a
           >
         </li>
         <li class="nav-item">
           <a
             class={`nav-link ${currentPath === "adopt" ? "text-primary" : ""}`}
-            href="/adopt">領養專區</a
+            href={`${import.meta.env.PUBLIC_URLBASE}/adopt`}>領養專區</a
           >
         </li>
         <li class="nav-item">
-          <SolidButton className="nav-link" href="/order">
+          <SolidButton
+            className="nav-link"
+            href={`${import.meta.env.PUBLIC_URLBASE}/order`}
+          >
             毛孩似顏繪
           </SolidButton>
         </li>

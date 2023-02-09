@@ -1,19 +1,25 @@
 ---
+const imageBefore = `url(${
+  import.meta.env.PUBLIC_URLBASE
+}/assets/images/btn2.png)`;
+const imageAfter = `url(${
+  import.meta.env.PUBLIC_URLBASE
+}/assets/images/btn.png)`;
 ---
 
-<style>
+<style define:vars={{ imageBefore, imageAfter }}>
   .cta-corner {
     --dialog-border-width: 2px;
     --dialog-border-radius: 0.5rem;
     --dialog-color: var(--bs-secondary);
-    background-image: url(../assets/images/btn2.png);
+    background-image: var(--imageBefore);
     width: 140px;
     height: 153px;
     margin-right: 5rem;
   }
 
   .cta-corner:hover {
-    background-image: url(../assets/images/btn.png);
+    background-image: var(--imageAfter);
   }
 
   .cta-corner:hover > img:nth-of-type(2) {
@@ -71,7 +77,7 @@
 
 <a
   class="d-none d-lg-block cta-corner position-fixed bottom-0 end-0"
-  href="/order"
+  href="/hex-bootstrap/order"
 >
   <span class="cta-corner__inner arrow_box">客製我的毛孩圖</span>
 </a>

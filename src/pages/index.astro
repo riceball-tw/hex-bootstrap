@@ -57,9 +57,16 @@ const toBeAdoptedPuppy = [
     realImgAlt: "白色的狗在雪地",
   },
 ];
+
+const heroBanner = `url("${
+  import.meta.env.PUBLIC_URLBASE
+}/assets/images/home.png")`;
+const heroBannerMobile = `url("${
+  import.meta.env.PUBLIC_URLBASE
+}/assets/images/home_mobile.png")`;
 ---
 
-<style>
+<style define:vars={{ heroBanner, heroBannerMobile }}>
   .outlinedText {
     color: #848975;
     text-shadow: -3px -3px 0 white, 0 -3px 0 white, 3px -3px 0 white,
@@ -68,16 +75,16 @@ const toBeAdoptedPuppy = [
   }
 
   .heroBanner {
-    background-image: url("./assets/images/home_mobile.png");
-
+    background-image: var(--heroBannerMobile);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    min-height: calc(100vh - var(--navbar-height));
   }
 
   @media only screen and (min-width: 768px) {
     .heroBanner {
-      background-image: url("./assets/images/home.png");
+      background-image: var(--heroBanner);
     }
   }
 </style>
@@ -89,7 +96,6 @@ const toBeAdoptedPuppy = [
   <!-- Hero -->
   <section
     class="heroBanner d-flex justify-content-center align-items-center h-100 overflow-hidden position-relative"
-    style="min-height: calc(100vh - var(--navbar-height));"
   >
     <h1
       class="outlinedText display-5 fw-bold position-absolute top-50 start-50 translate-middle text-center"
@@ -105,7 +111,7 @@ const toBeAdoptedPuppy = [
 
     <img
       class="img-fluid"
-      src="https://howtobefine.github.io/bootstrap5-final/images/home01.png"
+      src="assets/images/home01.png"
       alt="一個人拿著鉛筆周圍有兩隻狗與一隻貓的插圖"
     />
 

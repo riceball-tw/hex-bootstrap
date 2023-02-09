@@ -11,12 +11,23 @@ export interface Props {
 const { title, description } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
-const isAtOrderPage = currentPath === "order";
+const isAtOrderPage = currentPath === `${import.meta.env.PUBLIC_URLBASE}/order`;
+
+const textureUrl = `url(${
+  import.meta.env.PUBLIC_URLBASE
+}/assets/images/lightpaperfibers.png)`;
 ---
 
 <script>
   import "bootstrap/dist/js/bootstrap.bundle.min";
 </script>
+
+<style define:vars={{ textureUrl }}>
+  .texture {
+    background-image: var(--textureUrl);
+    background-attachment: fixed;
+  }
+</style>
 
 <html lang="zh-Hant-TW">
   <head>
@@ -47,11 +58,6 @@ const isAtOrderPage = currentPath === "order";
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      .texture {
-        background-image: url(./assets/images/lightpaperfibers.png);
-      }
-    </style>
   </head>
 
   <body class="texture">

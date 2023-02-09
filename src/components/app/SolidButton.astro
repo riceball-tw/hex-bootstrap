@@ -1,0 +1,22 @@
+---
+const { className, href, type, tag } = Astro.props;
+---
+
+{
+  tag === "button" ? (
+    <button
+      type={type}
+      class={`btn btn-primary  rounded-pill px-4 py-2 ${className}`}
+    >
+      <slot />
+    </button>
+  ) : (
+    <a
+      type={type}
+      class={`btn btn-primary  rounded-pill px-4 py-2 ${className}`}
+      href={href}
+    >
+      <slot />
+    </a>
+  )
+}

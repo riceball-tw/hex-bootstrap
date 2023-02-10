@@ -15,19 +15,8 @@ const isAtOrderPage = currentPath.includes("order");
 
 const textureUrl = `url(${
   import.meta.env.PUBLIC_URLBASE
-}/assets/images/lightpaperfibers.png)`;
+}/assets/images/lightpaperfibers.webp)`;
 ---
-
-<script>
-  import "bootstrap/dist/js/bootstrap.bundle.min";
-</script>
-
-<style define:vars={{ textureUrl }}>
-  .texture {
-    background-image: var(--textureUrl);
-    background-attachment: fixed;
-  }
-</style>
 
 <html lang="zh-Hant-TW">
   <head>
@@ -56,3 +45,14 @@ const textureUrl = `url(${
     {isAtOrderPage ? "" : <CTACorner />}
   </body>
 </html>
+
+<script>
+  import "bootstrap/dist/js/bootstrap.bundle.min";
+</script>
+
+<style define:vars={{ textureUrl }}>
+  .texture {
+    background-image: var(--textureUrl);
+    background-attachment: fixed;
+  }
+</style>

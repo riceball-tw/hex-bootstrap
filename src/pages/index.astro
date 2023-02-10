@@ -8,22 +8,22 @@ import AdoptCard from "@/components/app/AdoptCard.astro";
 const recentWorks = [
   {
     designerName: "Alex",
-    imgUrl: "assets/images/05.png",
+    imgUrl: "assets/images/05.webp",
     imgAlt: "一隻橘色圍著圍巾的狗",
   },
   {
     designerName: "Steve",
-    imgUrl: "assets/images/07.png",
+    imgUrl: "assets/images/07.webp",
     imgAlt: "一隻白橘相間的貓咪",
   },
   {
     designerName: "Joe",
-    imgUrl: "assets/images/06.png",
+    imgUrl: "assets/images/06.webp",
     imgAlt: "一隻黑色吐著舌頭的狗",
   },
   {
     designerName: "Mary",
-    imgUrl: "assets/images/Michael.png",
+    imgUrl: "assets/images/Michael.webp",
     imgAlt: "一隻白色的狗",
   },
 ];
@@ -33,37 +33,37 @@ const toBeAdoptedPuppy = [
     name: "華仔",
     description:
       "目前7個月大的華仔，是個愛笑的貪吃鬼，喜歡吃西瓜還有蓮霧，是一隻吃素的乖狗狗，會挑食不喜歡... ",
-    illustrationImgUrl: "assets/images/dog01.png",
+    illustrationImgUrl: "assets/images/dog01.webp",
     illustrationImgAlt: "一隻深棕色微笑的狗插畫",
-    realImgUrl: "assets/images/dog01-hover-1.png",
+    realImgUrl: "assets/images/dog01-hover-1.webp",
     realImgAlt: "一隻棕色的狗張著嘴",
   },
   {
     name: "小呆",
     description:
       "小呆有著圓圓的大眼睛，一歲的他來自台中，原本陪著一位老奶奶生活，上個月奶奶行動不便不能再陪... ",
-    illustrationImgUrl: "assets/images/04.png",
+    illustrationImgUrl: "assets/images/04.webp",
     illustrationImgAlt: "一隻黑色毛毛的狗插畫",
-    realImgUrl: "assets/images/dog01-hover.png",
+    realImgUrl: "assets/images/dog01-hover.webp",
     realImgAlt: "一隻黑色的狗在木頭地板",
   },
   {
     name: "Snow",
     description:
       "看起來很兇但特別怕打雷的Snow，很喜歡吃冰，冰冰的水也喜歡，如果摸他的額頭會發出吹口哨的聲... ",
-    illustrationImgUrl: "assets/images/08.png",
+    illustrationImgUrl: "assets/images/08.webp",
     illustrationImgAlt: "一隻嘴張張很大微笑藍色眼睛的白狗",
-    realImgUrl: "assets/images/dog01-hover-2.png",
+    realImgUrl: "assets/images/dog01-hover-2.webp",
     realImgAlt: "白色的狗在雪地",
   },
 ];
 
 const heroBanner = `url("${
   import.meta.env.PUBLIC_URLBASE
-}/assets/images/home.png")`;
+}/assets/images/home.webp")`;
 const heroBannerMobile = `url("${
   import.meta.env.PUBLIC_URLBASE
-}/assets/images/home_mobile.png")`;
+}/assets/images/home_mobile.webp")`;
 ---
 
 <style define:vars={{ heroBanner, heroBannerMobile }}>
@@ -110,8 +110,10 @@ const heroBannerMobile = `url("${
     <h2 class="visually-hidden">關於我們的服務</h2>
 
     <img
+      width="648"
+      height="486"
       class="img-fluid"
-      src="assets/images/home01.png"
+      src="assets/images/home01.webp"
       alt="一個人拿著鉛筆周圍有兩隻狗與一隻貓的插圖"
     />
 
@@ -139,7 +141,7 @@ const heroBannerMobile = `url("${
       <img
         width="250"
         height="134"
-        src="assets/images/title01.png"
+        src="assets/images/title01.webp"
         alt="一隻貓咪拿著鉛筆，背後有四個字：近期作品"
       />
     </h2>
@@ -160,7 +162,7 @@ const heroBannerMobile = `url("${
       <img
         width="250"
         height="134"
-        src={`${import.meta.env.PUBLIC_URLBASE}/assets/images/title02.png`}
+        src={`${import.meta.env.PUBLIC_URLBASE}/assets/images/title02.webp`}
         alt="一隻在滑板上的狗，背後有四個字：領養專區"
       />
     </h2>

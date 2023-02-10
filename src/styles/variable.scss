@@ -1325,7 +1325,8 @@ $pagination-font-size: $font-size-base !default;
 
 $pagination-color: currentColor !default;
 // $pagination-color: var(--#{$prefix}link-color) !default;
-$pagination-bg: var(--#{$prefix}body-bg) !default;
+$pagination-bg: transparent !default;
+// $pagination-bg: var(--#{$prefix}body-bg) !default;
 $pagination-border-radius: var(--#{$prefix}border-radius) !default;
 $pagination-border-width: 0 !default;
 // $pagination-border-width: var(--#{$prefix}border-width) !default;
